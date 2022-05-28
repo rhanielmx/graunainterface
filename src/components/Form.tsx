@@ -9,14 +9,11 @@ interface FormProps {
 }
 
 export default function Form(props: FormProps) {
-    console.log('form')
-    console.log(process.env.NEXT_PUBLIC_BASE_URL)
     const jsonified = Solicitation.toJSON(props.solicitation)
     const [status, setStatus] = useState(jsonified.status)
     const [message, setMessage] = useState(jsonified.message)
     const [url, setUrl] = useState(jsonified.url)
     const [response, setResponse] = useState(jsonified.response)
-    console.log(jsonified)
     const router = useRouter()
 
     function saveSolicitation(id, status, response) {
@@ -25,7 +22,6 @@ export default function Form(props: FormProps) {
             response: response,
             category_id: 0
         }).then(function (response) {
-            console.log(response);
             location.href='/admin'
         })
             .catch(function (error) {
