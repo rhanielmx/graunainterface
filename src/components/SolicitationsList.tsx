@@ -8,7 +8,7 @@ interface SolicitationProps{
 export default function SolicitationsList(props: SolicitationProps){
     return(
         <div>
-            {props.solicitations.map(solicitation => <Card solicitation={solicitation}/>)}
+            {props.solicitations.map(solicitation => <Card key={solicitation.id} solicitation={solicitation}/>)}
         </div>
     )
 }

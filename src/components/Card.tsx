@@ -11,13 +11,13 @@ interface CardProps{
 export default function Card(props: CardProps){
     const statusLabels = {
         'Pending': 'Pendente',
-        'Fake': 'Real',
-        'Real': 'Falso'
+        'Fake': 'Falso',
+        'Real': 'Real'
     }
 
     const id = props.solicitation?.id
     return(
-       <div className="flex justify-center">
+       <div key={id} className="flex justify-center">
             <div className="flex flex-row w-2/4 border-2 bg-purple-500 rounded-md justify-between px-7 py-2 my-2">
                 <span className="text-white text-2md">Solicitação #{props.solicitation.id}</span>
                 <span className="text-white text-2md">{statusLabels[props.solicitation.status]}</span>

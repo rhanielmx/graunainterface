@@ -20,8 +20,8 @@ export default function Input(props) {
                 `}
                 value={props.value}
                 id="status" onChange={e=>props.onChange(e.target.value)}>
-                {Object.keys(props.choices).map(key => {
-                    return <option value={key}>{props.choices[key]}</option>
+                {Object.keys(props.choices).map((key,i) => {
+                    return <option key={i} value={key}>{props.choices[key]}</option>
                 })}
             </select>
     } else {

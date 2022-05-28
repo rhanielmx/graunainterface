@@ -20,24 +20,17 @@ export default function Form(props: FormProps) {
     const router = useRouter()
 
     function saveSolicitation(id, status, response) {
-        // fetch(`https://localhost:5000/admin/solicitation/${id}`,{
-        //     method: 'PUT',
-        //     body: JSON.stringify({status: status,
-        //         response: response,
-        //         category_id: 0})
-        // })
-
         axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}/admin/solicitation/${id}`, {
             status: status,
             response: response,
             category_id: 0
         }).then(function (response) {
             console.log(response);
+            location.href='/admin'
         })
             .catch(function (error) {
                 console.error(error);
             });
-        location.href='/admin'
     }
 
     
