@@ -4,6 +4,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from "next/router";
 
+import {statusChoices} from './choices'
+
 interface FormProps {
     solicitation: Solicitation
 }
@@ -59,15 +61,15 @@ export default function Form(props: FormProps) {
                 <Input
                     label="Status" type="select"
                     value={status} onChange={setStatus}
-                    choices={{ 'Pending': 'Selecione um Status', 'Real': 'Verdade', 'Fake': 'Falso' }}
+                    choices={statusChoices}
                 />
             </div>
 
             <div className='flex justify-end pt-4 items-center'>
                 <button className={`bg-gradient-to-r from-blue-400 to-blue-700
             text-white px-4 py-2 rounded-md disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed m-4`}
-                    disabled={status === 'Pending'} onClick={() => saveSolicitation(router.query.id, status, response)}>
-                    <span className={status === 'Pending' ? 'text-red-500' : ''}
+                    disabled={status === '0'} onClick={() => saveSolicitation(router.query.id, status, response)}>
+                    <span className={status === '0' ? 'text-red-500' : ''}
                     >Salvar</span>
                 </button>
                 <button className='bg-gradient-to-r from-gray-400 to-gray-700

@@ -10,9 +10,15 @@ interface CardProps{
 
 export default function Card(props: CardProps){
     const statusLabels = {
-        'Pending': 'Pendente',
-        'Fake': 'Falso',
-        'Real': 'Real'
+        '0': 'Pendente',
+        '1': 'Conteúdo genuíno',
+        '2': 'Sátira ou paródia',
+        '3': 'Conexão falsa',
+        '4': 'Conteúdo enganoso',
+        '5': 'Contexto falso',
+        '6': 'Conteúdo manipulado',
+        '7': 'Conteúdo exagerado',
+        '8': 'Conteúdo fabricado'
     }
 
     const id = props.solicitation?.id
